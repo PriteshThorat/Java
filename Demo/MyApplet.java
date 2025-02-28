@@ -1,5 +1,6 @@
 import java.io.*;
-import java.applet.*;
+import java.applet.Applet;
+import java.awt.*;
 
 /*
 <applet
@@ -19,5 +20,3 @@ public class MyApplet extends Applet{
         add(chk2);
     }
 };
-
-//C:\Program Files\Common Files\Oracle\Java\javapath
