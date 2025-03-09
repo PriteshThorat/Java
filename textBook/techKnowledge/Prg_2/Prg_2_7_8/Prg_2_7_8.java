@@ -5,8 +5,8 @@ import javax.swing.*;
 public class Prg_2_7_8 {
     public static void main(String[] args) {
         JFrame f = new JFrame("Demonstrating Dialog");
-        f.setSize(300, 150); // Set initial frame size
-        f.setLocationRelativeTo(null); // Center the frame
+        f.setSize(300, 150);
+        f.setLocationRelativeTo(null); 
 
         JPanel messagePane = new JPanel();
         messagePane.add(new JLabel("message"));
@@ -15,10 +15,9 @@ public class Prg_2_7_8 {
         JPanel buttonPane = new JPanel();
         JButton button = new JButton("OK");
 
-        // Correct way to handle button click
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                f.dispose(); // Close the frame
+                f.dispose();
             }
         });
 
