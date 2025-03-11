@@ -14,7 +14,7 @@ class Student{
 
 public class Q3a{
   public static void main(String[] args){
-    Student s[5] = new Student();
+    Student s[] = new Student[5];
     Scanner sc = new Scanner(System.in);
 
     int id;
