@@ -1,3 +1,5 @@
+// Define a class student with int id and string name as data members and a method void SetData ( ). Accept and display the data for five students.
+
 import java.lang.*;
 import java.util.*;
 import java.io.*;
@@ -21,9 +23,11 @@ public class Q3a{
     String name;
 
     for(int i = 0; i < 5; i++){
+      s[i] = new Student();
       System.out.print("Enter ID: ");
       id = sc.nextInt();
-      System.out.println("Enter Name: ");
+      sc.nextLine();
+      System.out.print("Enter Name: ");
       name = sc.nextLine();
       s[i].setData(id, name);
     }
