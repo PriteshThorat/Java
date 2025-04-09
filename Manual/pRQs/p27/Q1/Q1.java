@@ -1,90 +1,48 @@
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.SQLException;
 
 public class Q1 {
-    // Database credentials
-    private static final String URL = "jdbc:mysql://localhost:3306/school"; // Change database name
-    private static final String USER = "root"; // Change to your MySQL username
-    private static final String PASSWORD = "password"; // Change to your MySQL password
 
     public static void main(String[] args) {
+        // MySQL database credentials
+        String jdbcURL = "jdbc:mysql://localhost:3306/student"; // 'school' is the database name
+        String username = "root"; // replace with your MySQL username
+        String password = "1234"; // replace with your MySQL password
+
+        Connection connection = null;
+
         try {
-            // 1. Load MySQL JDBC Driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            // Connect to database
+            connection = DriverManager.getConnection(jdbcURL, username, password);
+            Statement statement = connection.createStatement();
 
-            // 2. Establish connection
-            Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Connected to the database!");
-
-            // 3. Create Student table if not exists
+            // Create Student table
             String createTableSQL = "CREATE TABLE IF NOT EXISTS Student (" +
-                                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
-                                    "name VARCHAR(100), " +
-                                    "age INT, " +
-                                    "grade VARCHAR(10))";
+                                    "id INT PRIMARY KEY," +
+                                    "name VARCHAR(100)," +
+                                    "age INT," +
+                                    "grade VARCHAR(10)" +
+                                    ")";
+            statement.executeUpdate(createTableSQL);
+            System.out.println("Table 'Student' created successfully.");
 
-            Statement stmt = conn.createStatement();
-            stmt.executeUpdate(createTableSQL);
-            System.out.println("Student table created successfully!");
+            // Insert a record into Student table
+            String insertSQL = "INSERT INTO Student (id, name, age, grade) " +
+                               "VALUES (1, 'John Doe', 20, 'A')";
+            statement.executeUpdate(insertSQL);
+            System.out.println("Record inserted successfully.");
 
-            // 4. Insert a student record
-            String insertSQL = "INSERT INTO Student (name, age, grade) VALUES (?, ?, ?)";
-            PreparedStatement pstmt = conn.prepareStatement(insertSQL);
-            pstmt.setString(1, "John Doe");
-            pstmt.setInt(2, 20);
-            pstmt.setString(3, "A");
-
-            int rowsInserted = pstmt.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("Record inserted successfully!");
-            }
-
-            // 5. Close resources
-            pstmt.close();
-            stmt.close();
-            conn.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (connection != null)
+                    connection.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
-}
-
-/*
-Ensure MySQL is installed and running.
-
-Create a Database in MySQL:
-
-sql
-Copy
-Edit
-CREATE DATABASE school;
-Compile and Run the Program:
-
-Add MySQL JDBC driver (mysql-connector-java.jar) to your project.
-
-Compile the program:
-
-nginx
-Copy
-Edit
-javac StudentDatabase.java
-Run the program:
-
-nginx
-Copy
-Edit
-java StudentDatabase
-Check the Database:
-
-Run this SQL query to verify the record insertion:
-
-sql
-Copy
-Edit
-SELECT * FROM Student;
-Expected Output in Console
-pgsql
-Copy
-Edit
-Connected to the database!
-Student table created successfully!
-Record inserted successfully!*/
+};
