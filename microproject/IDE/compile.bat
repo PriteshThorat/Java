@@ -1,0 +1,3 @@
+@echo off
+"C:\Program Files\Java\jdk-24\bin\javac" --module-path "C:\Program Files\Java\javafx-sdk-21.0.6\lib" --add-modules javafx.controls,javafx.fxml -d bin src/main/java/com/ide/Main.java src/main/java/com/ide/ui/MainWindow.java src/main/java/com/ide/ui/FindDialog.java src/main/java/com/ide/ui/ReplaceDialog.java src/main/java/com/ide/ui/FileRunner.java src/main/java/com/ide/ui/SyntaxHighlighter.java
+pause 
