@@ -43,3 +43,7 @@ A lightweight IDE built with Java and JavaFX, inspired by VS Code.
 ## Contributing
 
 Feel free to submit issues and enhancement requests! 
+
+For javac - .\compile.bat
+
+For java - .\run.bat
