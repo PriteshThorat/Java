@@ -1,1 +1,18 @@
-Manual/pRQs/lib
+# Ignore class files
+*.class
+
+# VS Code settings
+.vscode/
+
+# Ignore Mac system files
+.DS_Store
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.swp
+
+# Optional: ignore compiled JARs if you build them locally
+*.jar
