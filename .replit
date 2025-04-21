@@ -2,6 +2,3 @@ run = "javac"
 
 [deployment]
 run = ["sh", "-c", "javac"]
-
-[workflows]
-runButton = "Run Swing App"
