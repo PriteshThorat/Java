@@ -1,7 +1,7 @@
 // Write programs to demonstrate use of Built in packages and User defined packages.
 
 import java.util.ArrayList;  
-import shapes.Circle;  
+import shapes.*;  
 
 public class Q14 {
     public static void main(String[] args) {
