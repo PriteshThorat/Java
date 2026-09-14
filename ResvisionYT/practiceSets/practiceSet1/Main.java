@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import java.util.Sc
+import java.util.Scanner;anner;
 
 public class Main {
   public static void main(String[] args) {
@@ -25,13 +26,13 @@ public class Main {
     // scanner.close();
 
     // Question 4
-    System.out.print("Enter Kilometers: ");
-    Scanner scanner = new Scanner(System.in);
-    float km = scanner.nextFloat();
-    float m = km * 1000;
-    System.out.println(km + " kilometers in meters is: " + m);
+    // System.out.print("Enter Kilometers: ");
+    // Scanner scanner = new Scanner(System.in);
+    // float km = scanner.nextFloat();
+    // float m = km * 1000;
+    // System.out.println(km + " kilometers in meters is: " + m);
 
-    scanner.close();
+    // scanner.close();
 
     // Question 5
     // System.out.print("Enter your number: ");
