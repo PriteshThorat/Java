@@ -1,8 +1,7 @@
-import java.util.Sc
-import java.util.Scanner;anner;
+// import java.util.Scanner;
 
-public class Main {
-  public static void main(String[] args) {
+// public class Main {
+//   public static void main(String[] args) {
     // Question 1
     // float a = 6;
     // float b = 3;
@@ -40,5 +39,5 @@ public class Main {
     // System.out.println(scanner.hasNextInt());
 
     // scanner.close();
-  }
-}
+//   }
+// }
