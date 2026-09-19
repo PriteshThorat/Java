@@ -1,6 +1,6 @@
 interface Bicycle {
-  public void applyBrake (int dec);
-  public void speedUp (int inc);
+  void applyBrake (int dec);
+  void speedUp (int inc);
 }
 
 class AvonCycle implements Bicycle {
