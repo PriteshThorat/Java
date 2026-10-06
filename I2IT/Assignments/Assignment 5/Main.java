@@ -101,6 +101,8 @@ public class Main {
                 shape = new Circle(radius);
 
                 shape.computeArea();
+                
+                break;
             default:
                 System.out.println("Invalid choice");
         }

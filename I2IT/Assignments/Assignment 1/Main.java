@@ -19,7 +19,7 @@ class complexOp {
     real = (c1.real + c2.real);
     img = (c1.img + c2.img);
     
-    System.out.println(" \n Addition of given complex number is : (" + real + ") + (" + img + ")i" );
+    System.out.println(" Addition of given complex number is : (" + real + ") + (" + img + ")i" );
   }
 
   public void subtractNumbers (complexOp c1, complexOp c2) {
@@ -28,7 +28,7 @@ class complexOp {
     real = (c1.real - c2.real);
     img = (c1.img - c2.img);
 
-    System.out.println(" \n Subtraction of given complex number is : (" + real + ") + (" + img  + ")i");
+    System.out.println("Subtraction of given complex number is : (" + real + ") + (" + img  + ")i");
 
   }
 
@@ -38,7 +38,7 @@ class complexOp {
     real = (c1.real * c2.real) - (c1.img * c2.img);
     img = (c1.real * c2.img) + (c1.img * c2.real);
 
-    System.out.println(" \n Multiplication of given complex number is : " + real + " + " + img + "i");
+    System.out.println("Multiplication of given complex number is : " + real + " + " + img + "i");
   }
 
   public void divideNumber (complexOp c1, complexOp c2) {
@@ -50,7 +50,7 @@ class complexOp {
     real = ((c1.real * c2.real) + (c1.img * c2.img)) / denominator;
     img = ((c1.img * c2.real) - (c1.real * c2.real)) / denominator;
 
-    System.out.println(" \n Division of given complex number is : " + real + " + " + img + "i");
+    System.out.println("Division of given complex number is : " + real + " + " + img + "i");
   }
 }
 

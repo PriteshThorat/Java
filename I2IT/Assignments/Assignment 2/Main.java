@@ -1,19 +1,19 @@
 import java.util.Scanner;
 
-class bag {
+class Bag {
     String color;
     double weight;
     static int noOfObjects = 0;
     static double totalWeight = 0.0;
 
-    bag () {
+    Bag () {
         color = "Black";
         weight = 1.20;
         noOfObjects += 1;
         totalWeight += weight; 
     }
 
-    bag (String color, double weight) {
+    Bag (String color, double weight) {
         this.color = color;
         this.weight = weight;
         noOfObjects += 1;
@@ -47,11 +47,11 @@ public class Main {
                     System.out.print("Enter Color and weight: ");
                     color = sc.next();
                     weight = sc.nextDouble();
-                    bag b1 = new bag(color, weight);
+                    Bag b1 = new Bag(color, weight);
                     b1.display();
                     break;
                 case 2:
-                    bag b2 = new bag();
+                    Bag b2 = new Bag();
                     b2.display();
                 case 3:
                 default:
@@ -59,8 +59,8 @@ public class Main {
             }
         } while (ch != 3);
         
-        System.out.println("No of objects: " + bag.noOfObjects);
-        System.out.println("Total weight: " + bag.totalWeight);
+        System.out.println("No of objects: " + Bag.noOfObjects);
+        System.out.println("Total weight: " + Bag.totalWeight);
 
         sc.close();
     }

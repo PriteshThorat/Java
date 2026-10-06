@@ -32,25 +32,19 @@ class AC implements MyInterface {
     public void accept () {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter the Tempreture of AC: ");
+        System.out.print("Enter the Temperature of AC: ");
         this.degree = sc.nextInt();
         System.out.print("Enter is AC ON or OFF: ");
         this.acSwitch = sc.next();
     }
 
     public void display () {
-        System.out.println("Tempreture of AC: " + degree);
+        System.out.println("Temperature of AC: " + degree);
         System.out.println("AC switch: " + acSwitch);
     }
 }
 
 class Light implements MyInterface {
-    enum LightType {
-        WARM,
-        WHITE,
-        YELLOW
-    }
-
     String lightType;
     String lightSwitch;
 
@@ -60,9 +54,6 @@ class Light implements MyInterface {
         System.out.print("Enter the Light Type (Warm, White, Yellow): ");
         this.lightType = sc.next();
 
-        if (lightType == "Warm") {
-            LightType lT
-        } else if (lightType == "White") {} else if (lightType == "Yellow") {}
         System.out.print("Enter is Light ON or OFF: ");
         this.lightSwitch = sc.next();
     }
