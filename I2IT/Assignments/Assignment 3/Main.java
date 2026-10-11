@@ -7,8 +7,9 @@ class Database {
 
     static void initial () {
         try {
-            File file = new File(fileName);
+          File file = new File(fileName);
 
+          if (!file.exists()) {
             file.createNewFile();
 
             FileWriter fileWriter = new FileWriter(fileName);
@@ -16,6 +17,7 @@ class Database {
             fileWriter.write("Roll No.,Name,Email,Enrollment No.,Phone No.");
 
             fileWriter.close();
+          }
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -77,9 +79,17 @@ class Database {
 
         while (fileData.hasNextLine()) {
             String line = fileData.nextLine();
+            String structuredData[];
 
             if (line.contains(rollNo)) {
-                System.out.println(line);
+              structuredData = line.split(",");
+
+              System.out.println("\nData Found :-");
+            	System.out.println("\nRoll No.: " + structuredData[0]);
+            	System.out.println("Name: " + structuredData[1]);
+            	System.out.println("Email ID: " + structuredData[2]);
+            	System.out.println("Enrollment No.: " + structuredData[3]);
+            	System.out.println("Phone No.: " + structuredData[4] + "\n");
                 
                 fileData.close();
                 fileWriter.close();
@@ -121,9 +131,32 @@ class Database {
         File file = new File(fileName);
 
         Scanner fileData = new Scanner(file);
+        
+        String structuredData[];
+        Boolean skip = true;
+        int i = 1;
 
         while (fileData.hasNextLine()) {
-            System.out.println(fileData.nextLine());
+        	if (!skip) {
+        		structuredData = fileData.nextLine().split(",");
+            	
+        		System.out.println("\nStudent " + i + " Data :-");
+            	System.out.println("Roll No.: " + structuredData[0]);
+            	System.out.println("Name: " + structuredData[1]);
+            	System.out.println("Email ID: " + structuredData[2]);
+            	System.out.println("Enrollment No.: " + structuredData[3]);
+            	System.out.println("Phone No.: " + structuredData[4] + "\n");
+            	
+            	i++;
+        	} else {
+        		fileData.nextLine();
+        		
+            	skip = false;
+        	}
+        }
+
+        if (i == 1) {
+          System.out.println("\nNo Data Found.\n");
         }
 
         fileData.close();
@@ -135,18 +168,13 @@ public class Main {
         try {
             Database database = new Database();
             Scanner sc = new Scanner(System.in);
-            File file = new File("database.csv");
-
-            file.createNewFile();
-
-            FileWriter fileWriter = new FileWriter(file.getName());
 
             int choice = 7;
 
             Database.initial();
 
             do {
-                System.out.println("----- MENU -----");
+                System.out.println("\n----- MENU -----");
                 System.out.println("1. Insert the Record");
                 System.out.println("2. Update the Record");
                 System.out.println("3. Search the Record");
@@ -162,7 +190,7 @@ public class Main {
                 try {
                     switch (choice) {
                         case 1:
-                            System.out.print("Enter the Roll No.: ");
+                            System.out.print("\nEnter the Roll No.: ");
                             rollNo = sc.next();
                             System.out.print("Enter the Name: ");
                             name = sc.next();
@@ -176,36 +204,36 @@ public class Main {
                             database.insertData(rollNo, name, email, enrollmentNo, phoneNo);
                             break;
                         case 2:
-                            System.out.print("Enter the Roll No. of which you want to update the data: ");
+                            System.out.print("\nEnter the Roll No. of which you want to update the data: ");
                             rollNo = sc.next();
                             
                             Boolean isAvailable = database.searchData(rollNo);
                             
                             if (!isAvailable) {
-                            	System.out.println("Roll No. not found in Database.");
+                            	System.out.println("\nRoll No. not found in Database.\n");
                             	
                             	break;
                             }
                             
-                            System.out.print("Enter the Name: ");
+                            System.out.print("Enter the New Name: ");
                             name = sc.next();
-                            System.out.print("Enter the Email: ");
+                            System.out.print("Enter the New Email: ");
                             email = sc.next();
-                            System.out.print("Enter the Enrollment No: ");
+                            System.out.print("Enter the New Enrollment No: ");
                             enrollmentNo = sc.next();
-                            System.out.print("Enter the Phone No.: ");
+                            System.out.print("Enter the New Phone No.: ");
                             phoneNo = sc.next();
 
                             database.updateData(rollNo, name, email, enrollmentNo, phoneNo);
                             break;
                         case 3:
-                            System.out.print("Enter the Roll No.: ");
+                            System.out.print("\nEnter the Roll No. of which you want to search the data: ");
                             rollNo = sc.next();
 
                             Boolean isFind = database.searchData(rollNo);
                             
                             if (!isFind) {
-                            	System.out.println("Roll No. not found in Database.");
+                            	System.out.println("\nRoll No. not found in Database.\n");
                             }
                             break;
                         case 5:
@@ -215,7 +243,7 @@ public class Main {
                             database.deleteData();
                             break;
                         case 6:
-                            System.out.println("Program Terminated.");
+                            System.out.println("\nProgram Terminated.");
                             break;
                         default:
                             break;
@@ -224,8 +252,6 @@ public class Main {
                     System.out.println(e);
                 }
             } while (choice != 6);
-
-            fileWriter.close();
         } catch (Exception e) {
             System.out.println(e);
         }

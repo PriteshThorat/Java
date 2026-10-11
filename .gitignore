@@ -16,3 +16,6 @@
 
 # Optional: ignore compiled JARs if you build them locally
 *.jar
+
+# Database files
+*.csv
