@@ -21,3 +21,6 @@
 *.csv
 *.json
 *.xml
+
+# Temporary Files
+Temp.java

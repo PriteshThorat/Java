@@ -48,7 +48,7 @@ class complexOp {
     denominator = (c2.real * c2.real) + (c2.img * c2.img);
 
     real = ((c1.real * c2.real) + (c1.img * c2.img)) / denominator;
-    img = ((c1.img * c2.real) - (c1.real * c2.real)) / denominator;
+    img = ((c1.img * c2.real) - (c1.real * c2.img)) / denominator;
 
     System.out.println("Division of given complex number is : " + real + " + " + img + "i");
   }
@@ -57,7 +57,7 @@ class complexOp {
 public class  Main {
   public static void main (String args[]) {
     int choice = 0;
-    float num1, num2, ans;
+    float num1, num2;
 
     complexOp cal = new complexOp();
 
